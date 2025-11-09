@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+    <link rel="manifest" href="images/site.webmanifest">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+    <script src="/eel.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Arvo" rel="stylesheet">
+    <title>Prélèvement AL SALAM BANK - Vérification état des comptes</title>
+  </head>
+  <body>
+    <div class="overlay"></div>
+    <a href="index.html" class="logo d-flex align-items-center">
+      <img class="petite_image" src="images/small_logo.png" alt="logo">
+      <span class="d-none d-lg-block text-logo">AL SALAM BANK مصرف السلام الجزائر</span>
+    </a>
+    <!-- ======= Sidebar ======= -->
+    <aside id="sidebar" class="sidebar">
+      <ul class="sidebar-nav" id="sidebar-nav">
+        <li class="nav-item">
+          <a class="nav-link collapsed" href="acceuil.html">
+            <span>
+              <i class="fa-solid fa-laptop-file"></i>Vérification des comptes CCP </span>
+          </a>
+        </li>
+        <!-- End Vérification des comptes CCP Nav -->
+        <li class="nav-item">
+          <a class="nav-link" href="verification.html">
+            <span>
+              <i class="fa-regular fa-user"></i>Vérification état des comptes </span>
+          </a>
+        </li>
+        <!-- End Vérification de l'état des comptes Nav -->
+        <li class="nav-item">
+          <a class="nav-link collapsed" href="excel.html">
+            <span>
+              <i class="fa-regular fa-file-excel"></i>Segmentation fichier Excel </span>
+          </a>
+        </li>
+        <!-- End Segmentation fichier Excel Nav -->
+      </ul>
+    </aside>
+    <!-- End Sidebar-->
+    <main id="main" class="main">
+      <input type="file" id="real-file-excel" hidden="hidden" accept=".xls, .xlsx"/>
+      <!-- <input type="file" id="real-file-excel-auto" hidden="hidden" accept=".xls, .xlsx"/>
+      <input type="file" id="real-file-doc" hidden="hidden"/> -->
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-8 offset-xl-2">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Vérification de l'état des comptes</h5>
+                <select class="select-options" id="select-options">
+                  <option value="Manuelle">Vérification Manuelle</option>
+                  <option value="Automatique">Vérification Automatique</option>
+                </select>
+                <!-- -->
+                <div id="option-manuelle">
+                  <div class="container">
+                    <div class="row">
+                      <!-- -->
+                      <div class="col-md-6 d-flex flex-column justify-content-center align-items-cente">
+                         <!--  ---------------------- -->
+                        <label for="nomPageExcel"  class="text-left  w-100">Nom de la feuille excel à traitée  :</label>
+                        <input type="text" class="form-control  w-100" id="nomPageExcel_1" placeholder="Par défaut : 'Feuil1'">
+                        <label for="nomColonne"  class="text-left  w-100">Nom de la Colonne à traitée  :</label>
+                        <input type="text" class="form-control  w-100" id="nomColonneExcel1" placeholder="Par défaut : 'Compte'">
+                        <label for="nomColonneExcel"  class="text-left  w-100"></label>
+                        <button id="import-excel" class="btn-import2  w-100 h-100" ><i class="fa-regular fa-file-excel excel-icon"></i><br>Importer fichier Excel</button>
+                        <button id="imported-excel" class="btn-import2 w-100 h-100" style="position: relative;" hidden="hidden">
+                          <i class="fa-regular fa-file-excel excel-icon"></i>
+                          <i class="fa-solid fa-trash-can" style="color: red; position: absolute; top: 20px; right: 20px; font-size: large;"></i>
+                          <br> 
+                          <span>Excel Document</span>
+                        </button>
+                      </div>
+                      <!-- -->
+                      <div class="col-md-6 d-flex flex-column justify-content-center align-items-cente">
+                        <!--  ---------------------- -->
+                        <label for="nomPageExcel"  class="text-left  w-100">Nom de la feuille excel à traitée  :</label>
+                        <input type="text" class="form-control  w-100" id="nomPageExcel_2" placeholder="Par défaut : 'Feuil1'">
+                        <label for="nomColonneExcel"  class="text-left  w-100">Nom de la Colonne à traitée  :</label>
+                        <input type="text" class="form-control  w-100" id="nomColonneExcel2" placeholder="Par défaut : 'Numero de compte'">
+                        <label for="vide"  class="text-left  w-100"></label>
+                        <button id="import-doc" class="btn-import2 w-100 h-100"><i class="fa-regular fa-file-excel excel-icon"></i><br>Importer la situation des comptes</button>
+                        <button id="imported-doc" class="btn-import2 w-100 h-100" style="position: relative;" hidden="hidden">
+                          <i class="fa-regular fa-file-excel excel-icon"></i>
+                          <i class="fa-solid fa-trash-can" style="color: red; position: absolute; top: 20px; right: 20px; font-size: large;"></i>
+                          <br> 
+                          <span>Document</span>
+                        </button>
+                      </div>
+                      <!-- -->
+                    </div>
+                  </div>
+                  <div class="validation-buttons">
+                    <button id="test" class="buttons-validation" disabled="true">Commencer la vérification</button>
+                    <button id="telecharger-manuelle" class="buttons-validation">
+                      <i class="fa-solid fa-download"></i> Télécharger le fichier </button>
+                  </div>
+                </div>
+                <!-- -->
+                <div id="option-automatique" hidden="hidden">
+                  <div class="segmentation">
+                    <button id="import-excel-auto" class="btn-import2"><i class="fa-regular fa-file-excel excel-icon"></i><br>Importer fichier Excel</button>
+                        <button id="imported-excel-auto" class="btn-import2" style="position: relative;" hidden="hidden">
+                          <i class="fa-regular fa-file-excel excel-icon"></i>
+                          <i class="fa-solid fa-trash-can" style="color: red; position: absolute; top: 20px; right: 20px; font-size: large;"></i>
+                          <br> 
+                          <span>Excel Document</span>
+                        </button>
+                  </div>
+                  <div class="validation-buttons">
+                    <button id="validation-auto" class="buttons-validation" disabled="true">Commencer la vérification</button>
+                    <button class="buttons-validation">
+                      <i class="fa-solid fa-download"></i> Télécharger le fichier </button>
+                  </div>
+                </div>
+                <!-- -->
+                <div id="loading-popup" class="popup">
+                  <button id="close-loading-popup-button" class="close-button">&times;</button>
+                  <img src="images/icons8-analyze.gif" alt="Chargement en cours..." style="margin: 60px;">
+                  <h3>Vérification de l'état des comptes en cours...</h3>
+                  <div class="loader"></div>
+                </div>
+                <div id="stop-process" class="popup">
+                  <h3>Annulation en cours...</h3>
+                  <div class="loader"></div>
+                </div>
+                <div id="download-popup" class="popup">
+                  <button id="close-popup-button" class="close-button">&times;</button>
+                  <p>Votre fichier contenant les comptes vérifiés est prêt.</p>
+                  <br>
+                  <p>Le chemin pour y accéder :</p>
+                  <span id="chemin-a-remplir"></span>
+                  <br><i class="fa-solid fa-check", style="color: #00b701; font-size: xx-large; margin-top: 20px;"></i>
+                </div>
+                <div id="error-popup" class="popup">
+                  <button id="close-popup-button2" class="close-button">&times;</button>
+                  <p>Une erreur est survenu lors de la vérification des fichiers séléctionnés, veuillez choisir des fichiers valides.</p>
+                  <br><i class="fa-solid fa-xmark", style="color: #e8300c; font-size: xx-large; margin-top: 20px;"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <!-- End #main -->
+    <script src="verification2.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+  </body>
+</html>
