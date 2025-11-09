@@ -1,47 +1,70 @@
 🧠 Automated Verification System using Google Vision API
-🚀 Overview
 
-This project automates the extraction and verification of user information from scanned and handwritten documents using the Google Cloud Vision API.
-It reduced processing time from 2 days to just 10 minutes, improving both speed and accuracy.
+Automated solution to extract and verify user information from scanned and handwritten documents using the Google Cloud Vision API.
+This project reduced the manual verification process from 2 days to only 10 minutes, boosting both accuracy and efficiency.
 
 ⚙️ Tech Stack
 
-Python, Google Cloud Vision API
+🐍 Python
 
-OpenCV, pdf2image, PyMuPDF (fitz)
+☁️ Google Cloud Vision API
 
-pandas, openpyxl, eel (for UI)
+🧾 pandas, openpyxl
 
-🧩 Features
+🖼️ OpenCV, pdf2image, PyMuPDF (fitz)
 
-Extracts handwritten and printed text from scanned files.
+🌐 eel (for the interactive interface)
 
-Verifies extracted information against reference data automatically.
+✨ Features
 
-Highlights errors or missing fields in Excel reports.
+📄 Extracts text (handwritten or printed) from scanned documents
 
-Scalable and easy to integrate into existing data workflows.
+✅ Automatically verifies extracted fields (name, ID, etc.)
 
-⚡ Usage
+⚡ Highlights inconsistencies or missing data in Excel reports
 
-Set up your Google Vision credentials:
+🔁 Scalable and easily integrable into larger workflows
+
+🚀 Quick Start
+
+Clone the repository
+
+git clone https://github.com/yourusername/automated-verification.git
+cd automated-verification
+
+
+Install dependencies
+
+pip install -r requirements.txt
+
+
+Set Google Vision credentials
 
 export GOOGLE_APPLICATION_CREDENTIALS="config/credentials.json"
 
 
-Run the application:
+Run the app
 
 python main.py
 
-
-Upload scanned documents and get verified results instantly.
-
 📊 Results
 Process	Before	After
-Verification Time	~2 days	~10 minutes
+Data Verification	~2 days	~10 minutes
 Accuracy	~75%	95%+
-🔒 Notes
+🔒 Security
 
-Sensitive data and credentials are handled securely through environment variables.
+Credentials and API keys are managed through environment variables.
 
-No manual data entry or editing required.
+No sensitive data is stored or logged.
+
+💡 Future Improvements
+
+Support for multilingual document OCR
+
+Integration with BigQuery or Firestore
+
+AI-powered post-processing for OCR accuracy
+
+🏆 Impact
+
+A fully automated, cloud-powered system that transformed a slow manual review process into a fast, reliable, and intelligent verification pipeline.
